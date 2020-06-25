@@ -85,8 +85,12 @@ VALUES ('среднее профессиональное образование'
 
 CREATE TABLE mod_uch_cpravka.education_program (
   id      serial PRIMARY KEY,
-  program VARCHAR(355) NOT NULL
+  program VARCHAR(355) NOT NULL,
+  level_of_education_id INTEGER REFERENCES mod_uch_cpravka.level_of_education (id)
 );
+-- ALTER TABLE mod_uch_cpravka.education_program
+-- ADD COLUMN level_of_education_id INTEGER REFERENCES mod_uch_cpravka.level_of_education (id);
+
 INSERT INTO mod_uch_cpravka.education_program (program)
 VALUES ('образовательная программа среднего профессионального образования – программа подготовки квалифицированных рабочих, служащих'),
        ('образовательная программа среднего профессионального образования – программа подготовки специалистов среднего звена'),
@@ -100,8 +104,11 @@ VALUES ('образовательная программа среднего пр
 
 CREATE TABLE mod_uch_cpravka.duration_of_education (
   id       serial PRIMARY KEY,
-  duration VARCHAR(355) NOT NULL
+  duration VARCHAR(355) NOT NULL,
+  education_program_id INTEGER REFERENCES mod_uch_cpravka.education_program (id)
 );
+
+
 INSERT INTO mod_uch_cpravka.duration_of_education (duration)
 VALUES ('1 год 10 месяцев (СПО)'),
        ('2 года 10 месяцев (СПО)'),
