@@ -105,9 +105,9 @@ VALUES ('образовательная программа среднего пр
 CREATE TABLE mod_uch_cpravka.duration_of_education (
   id       serial PRIMARY KEY,
   duration VARCHAR(355) NOT NULL,
-  education_program_id INTEGER REFERENCES mod_uch_cpravka.education_program (id)
+  education_program_id INTEGER REFERENCES mod_uch_cpravka.education_program (id),
+   form_of_study_id INTEGER REFERENCES mod_uch_cpravka.form_of_study (id)
 );
-
 
 INSERT INTO mod_uch_cpravka.duration_of_education (duration)
 VALUES ('1 год 10 месяцев (СПО)'),
