@@ -56,6 +56,8 @@ CREATE TABLE mod_uch_cpravka.branch_of_bsu (
   id     serial PRIMARY KEY,
   branch VARCHAR(355) NOT NULL
 );
+ALTER TABLE mod_uch_cpravka.branch_of_bsu
+ADD COLUMN declension  VARCHAR(1355) NULL;
 INSERT INTO mod_uch_cpravka.branch_of_bsu (branch)
 VALUES ('Стерлитамакский филиал БашГУ'),
        ('Бирский филиал БашГУ'),
